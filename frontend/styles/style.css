@@ -1,0 +1,387 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/* reset */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;     color: #007fbd;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+body{
+	background: url(../images/bg.jpg) 0px 0px no-repeat;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+}
+body a {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	text-decoration: none;
+}
+
+input[type="button"], input[type="submit"] {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+
+h1 {
+	font-size: 47px;
+    font-weight: 600;
+    color: #FFF;
+    letter-spacing: 2px;
+    margin: 40px auto;
+	text-align:center;
+}
+
+.containerw3layouts-agileits {
+	width: 30%;
+	margin: 0 auto;
+	background: hsla(0, 0%, 0%, 0.5);
+	padding: 1em 2em;
+}
+
+.w3layoutscontactagileits h2 {
+	font-size: 25px;
+	text-align: center;
+	padding: 10px 0;
+	margin-bottom: 25px;
+}
+
+a.hiddenanchor{
+    display: none;
+}
+
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+/*--w3layouts--*/
+input[type="text"]{
+	width: 100%;
+    padding: 7px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    color: #000;
+    background-color:#fff;
+    margin-top: 12px;
+    margin-bottom: 30px;
+	border-bottom:1px solid #fff;
+	box-sizing:border-box;
+}
+textarea#message {
+    height: 150px;
+     padding: 7px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    color: #000;
+    background-color:#fff;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    width: 100%;
+	border-bottom:1px solid #fff;
+	resize:none;
+	box-sizing:border-box;
+   
+}
+/*--agileits--*/
+#register, #login{
+	width: 100%;
+}
+
+#toregister:target ~ #wrapper #register, #tologin:target ~ #wrapper #login{
+	-webkit-animation-name: fadeInLeft;
+	-moz-animation-name: fadeInLeft;
+	-ms-animation-name: fadeInLeft;
+	-o-animation-name: fadeInLeft;
+	animation-name: fadeInLeft;
+	-webkit-animation-delay: .1s;
+	-moz-animation-delay: .1s;
+	-o-animation-delay: .1s;
+	-ms-animation-delay: .1s;
+	animation-delay: .1s;
+}
+
+#toregister:target ~ #wrapper #login, #tologin:target ~ #wrapper #register{
+	-webkit-animation-name: fadeOutLeftBig;
+	-moz-animation-name: fadeOutLeftBig;
+	-ms-animation-name: fadeOutLeftBig;
+	-o-animation-name: fadeOutLeftBig;
+	animation-name: fadeOutLeftBig;
+}
+
+.animate{
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;    
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;    
+	-o-animation-duration: 1s;
+	-o-animation-timing-function: ease;
+	-o-animation-fill-mode: both;    
+	-ms-animation-duration: 1s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;    
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;
+}
+/*--w3layouts--*/
+/*--agileits--*/
+
+h3 {
+	font-size: 18px;
+	font-weight: 700;
+	color: #EEE;
+	padding: 10px 0;
+	border-bottom: 1px solid #CCC;
+}
+
+.ferry {
+    padding: 0px 0px 0px;
+    text-align: left;
+}
+
+h4 {
+	font-size: 15px;
+	text-align: left;
+	color: #EEE;
+}
+
+form {
+	margin-top: 0px;
+}
+
+select, .tickets input[type="number"] {
+	width: 100%;
+	padding: 7px;
+	border: none;
+	font-size: 15px;
+	outline: none;
+	color: #000;
+	background-color:#fff;
+	margin-top: 12px;
+	margin-bottom: 30px;
+	Border-bottom:1px solid #fff;
+	box-sizing:border-box;
+}
+
+select.dropdown, input#datepicker, input#datepicker1, input#datepicker2 {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 12px;
+    margin-bottom: 30px;
+    outline: none;
+    border: none;
+    color: #000;
+    background-color:#fff;
+	Border-bottom:1px solid #fff;
+	box-sizing:border-box;
+}
+ ::-webkit-input-placeholder {
+color:#000 !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+color:#000 !important;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+color:#000 !important;
+}
+:-ms-input-placeholder {  
+color:#000 !important;
+}
+
+.book-pag {
+	text-align: left;
+}
+
+.book-pag h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #EEE;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#register .book-pag-frm1, #register .book-pag-frm2 {
+	width: 100%;
+	float: left;
+}
+
+.date {
+	background: url(../images/date-icon.png) no-repeat 95.5% 45% #fff;
+	cursor: pointer;
+	padding: 8px 0;
+}
+
+.book-pag-frm1 {
+	padding-top: 0px;
+}
+
+label {
+    font-size: 15px;
+    color: #EEE;
+    float: left;
+    width: 100%;
+	letter-spacing: 1px;
+    text-transform: capitalize;
+	    font-style: italic;
+}
+
+.tickets {
+	text-align: left;
+}
+
+
+.tickets input[type="number"] {
+	width: 100%;
+}
+
+.wthreesubmitaits {
+    padding: 0px 0px 30px;
+    text-align: center;
+}
+
+.wthreesubmitaits input[type="submit"] {
+    padding: 15px 30px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #a50057;
+    color: #fff;
+	letter-spacing: 3px;
+}
+
+.wthreesubmitaits input[type="submit"]:hover {
+	background-color:#000;
+}
+
+p.change_link {
+	color: #EEE;
+	width: 100%;
+	font-size: 15px;
+	padding: 0 0 40px;
+}
+
+#wrapper p.change_link a {
+	color: #FFEB3B;
+	font-size: 18px;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	border-bottom: 3px solid #FFEB3B;
+}
+
+#wrapper p.change_link a:hover {
+	color: #FFC107;
+	border-bottom: 3px solid #FFC107;
+}
+
+
+
+.w3lsfooteragileits p a {
+	color: #FFF;
+}
+
+.w3lsfooteragileits p {
+	line-height: 25px;
+	margin: 40px 0;
+	text-align:center;
+	color:#fff;
+	    font-size: 15px;
+}
+
+.w3lsfooteragileits p a:hover {
+	color:#a50057;
+}
+
+/*-- Index-Page-Styling --*/
+
+/** Responsive **/
+@media screen and (max-width: 1080px){
+.containerw3layouts-agileits {
+    width: 35%;
+}	
+}
+@media screen and (max-width: 991px){
+.containerw3layouts-agileits {
+    width: 40%;
+}	
+}
+@media screen and (max-width: 768px){
+.containerw3layouts-agileits {
+    width: 45%;
+}	
+}
+@media screen and (max-width: 667px){
+.containerw3layouts-agileits {
+    width: 55%;
+}	
+}
+@media screen and (max-width: 600px){
+h1 {
+    font-size: 40px;
+    margin: 30px auto;
+}	
+}
+@media screen and (max-width: 568px){
+.containerw3layouts-agileits {
+    width: 60%;
+}	
+}
+
+@media screen and (max-width: 480px){
+h1 {
+    font-size: 34px;
+}
+.containerw3layouts-agileits {
+    width: 70%;
+}	
+}
+
+@media screen and (max-width: 414px){
+h1 {
+    font-size: 28px;
+	  margin: 25px auto;
+}
+	
+}
+@media screen and (max-width: 384px){
+.w3lsfooteragileits p {
+    margin: 20px 0;
+    font-size: 14px;
+}	
+}
+@media screen and (max-width: 320px){
+.wthreesubmitaits input[type="submit"] {
+    padding: 15px;
+}	
+}       
+/** /Responsive **/

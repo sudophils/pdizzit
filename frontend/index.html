@@ -1,0 +1,250 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Dizzi App
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta
+      name="keywords"
+      content="Doctor Availability Form Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates"
+    />
+    <link
+      rel="stylesheet"
+      href="css/jquery-ui.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      href="css/wickedpicker.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+
+    <!--webfonts-->
+    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet"> -->
+    <!--//webfonts-->
+    <script src="js/dizzi.js"></script>
+    <script src="js/rawchecker.js"></script>
+    <script src="js/utils/apiurls.js"></script>
+    <script src="js/utils/hmac-md5.js"></script>
+    <script src="js/utils/enc-base64-min.js"></script>
+    <script src="js/services/apiServices.js"></script>
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/factories/formatFactory.js"></script>
+    <script src="js/factories/languageFactory.js"></script>
+    <script src="js/factories/tokenFactory.js"></script>
+
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/wickedpicker.css" />
+  </head>
+  <body>
+    <h1>Philing Dizzi</h1>
+    <h4 class="text-center">Get a diagnosis by clicking on a symptom</h4>
+    <hr />
+    <div
+      class="containerw3layouts-agileits"
+      ng-app="dizziApp"
+      ng-controller="DizziCheckerController"
+    >
+      <div class="w3layoutscontactagileits">
+        <div id="wrapper">
+          <form>
+            <div id="login" class="animate w3layouts agileits form">
+              <div class="ferry ferry-from">
+                <label ng-click="loadSymptoms()"
+                  >Select a symptom you may have experienced :</label
+                >
+                <!-- data-ng-init="loadSymptoms()" -->
+                <select
+                  onchange="run()"
+                  id="symptomList"
+                  data-ng-init="loadSymptoms()"
+                  ng-model="symptom"
+                  data-ng-options="symptom.ID as symptom.Name for symptom in symptoms"
+                >
+                </select>
+              </div>
+              <div class="ferry ferry-from">
+                <label>Symptom ID:</label>
+                <input
+                  ng-model="selectedSymptoms"
+                  id="symptomID"
+                  disabled
+                  string-to-number
+                  type="text"
+                  placeholder="symptom ID appears here"
+                />
+              </div>
+              <div class="ferry ferry-from">
+                <label>Choose Gender:</label>
+                <br />
+
+                <span class="input_label">Male</span>
+                <input
+                  type="radio"
+                  ng-model="gender.value"
+                  value="male"
+                  style="width:10px;height:10px"
+                  class="ng-pristine ng-untouched ng-valid ng-not-empty"
+                />
+                <span class="input_label">Female</span>
+                <input
+                  type="radio"
+                  ng-model="gender.value"
+                  value="female"
+                  style="width:10px;height:10px"
+                  class="ng-pristine ng-untouched ng-valid ng-not-empty"
+                />
+              </div>
+              <div class="book-pag agileits w3layouts">
+                <div class="clear"></div>
+              </div>
+              <div class="book-pag agileits w3layouts">
+                <div class="clear"></div>
+              </div>
+              <div class="tickets">
+                <div class="persons">
+                  <label>Year of birth :</label>
+                  <input
+                    ng-model="yearOfBirth"
+                    type="number"
+                    name="Number"
+                    id="dob"
+                    string-to-number
+                    value="1988"
+                    placeholder="1988"
+                    required
+                  />
+                </div>
+
+                <div class="clear"></div>
+              </div>
+
+              <div class="wthreesubmitaits">
+                <a
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  ng-click="loadDiagnosis(selectedSymptoms,gender,yearOfBirth)"
+                >
+                  Get Diagnosis
+                </a>
+              </div>
+            </div>
+          </form>
+
+          <!-- diagnosis modal -->
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Possible diagnosis data for the selected symptoms
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div
+                  ng-repeat=" diag in diagnosis track by $index"
+                  class="modal-body"
+                  *ngif="diagnosis != ''"
+                  id="message"
+                  placeholder="Your diagnosis for the selected symptom will be showed here"
+                  ng-model="diagnosis"
+                >
+                  You re likly having:
+
+                  {{ diag.Issue.Name }}
+                  <br />
+                  <small>
+                    <strong>
+                      Handling Department:
+                      {{ diag.Specialisation[0].Name }}
+                      {{ diag.Specialisation[1].Name }}</strong
+                    >
+                  </small>
+                  <hr />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3lsfooteragileits">
+      <p>
+        &copy; 2018 Dizzi App. All Rights Reserved |
+        <a href="http://w3layouts.com" target="=_blank">W3</a>
+      </p>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function run() {
+        //get the tow element and change value
+        const dispId = document.getElementById("symptomID");
+
+        // the id come like number:120
+        // take only the no part
+        const long_id = document.getElementById("symptomList").value;
+
+        const id_arr = long_id.split(":");
+        const id = id_arr[1];
+        //display only number id
+        dispId.value = id;
+      }
+    </script>
+  </body>
+</html>

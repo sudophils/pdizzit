@@ -7,7 +7,7 @@
   "dependencies": {
     "sails": "^1.2.3",
     "sails-hook-orm": "^2.1.1",
-    "sails-hook-sockets": "^2.0.0",
+    "sails-hook-sockets": "^2.0.3",
     "@sailshq/lodash": "^3.10.3"
   },
   "devDependencies": {
